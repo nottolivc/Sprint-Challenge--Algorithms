@@ -94,9 +94,17 @@ class SortingRobot:
 
     def sort(self):
         """
-        Sort the robot's list.
+        Sort the robot's list. start filling out the sort() method following these rules:
+        You may use any pre-defined robot methods.
+        You may NOT modify any pre-defined robot methods.
+        You may use logical operators. (if, and, or, not, etc.)
+        You may use comparison operators. (>, >=, <, <=, ==, is, etc.)
+        You may use iterators. (while, for, break, continue)
+        You may NOT store any variables. (=)
+        You may NOT access any instance variables directly. (self._anything)
+        You may NOT use any Python libraries or class methods. (sorted(), etc.)
+        You may define robot helper methods, as long as they follow all the rules.
         """
-        # Fill this out
         while self.can_move_right() is True: 
             # loop will continue to go right until it cannot
             self.swap_item() 
