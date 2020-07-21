@@ -94,10 +94,44 @@ class SortingRobot:
 
     def sort(self):
         """
-        Sort the robot's list.
+        Sort the robot's list. start filling out the sort() method following these rules:
+        You may use any pre-defined robot methods.
+        You may NOT modify any pre-defined robot methods.
+        You may use logical operators. (if, and, or, not, etc.)
+        You may use comparison operators. (>, >=, <, <=, ==, is, etc.)
+        You may use iterators. (while, for, break, continue)
+        You may NOT store any variables. (=)
+        You may NOT access any instance variables directly. (self._anything)
+        You may NOT use any Python libraries or class methods. (sorted(), etc.)
+        You may define robot helper methods, as long as they follow all the rules.
         """
-        # Fill this out
-        pass
+        while self.can_move_right() is True: 
+            # loop will continue to go right until it cannot
+            self.swap_item() 
+            self.move_right() 
+            # if the item in position is smaller then item held, position it to the left
+            if self.compare_item() == 1: 
+                self.swap_item() 
+                # swap left, moving left, swap objects, move back and swap left
+                self.move_left() # right object
+                self.swap_item() # full item swap
+                self.move_right() # back to previous position
+                self.set_light_on() # turn on light, restart loop to beginning
+            else: # current item is smaller than item in current position
+                self.move_left() 
+                self.swap_item()
+                self.move_right() 
+                # item is moved to left of the lis
+                # if cannnot move
+            if self.can_move_right() is False:
+                # and if at the furthest right point of the list 
+                if self.light_is_on() is False: 
+                    break
+                else:
+                    # if just swapped our item move left
+                    while self.can_move_left() is True:
+                        self.move_left()
+                    self.set_light_off()    
 
 
 if __name__ == "__main__":
